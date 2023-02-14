@@ -1,0 +1,11 @@
+{
+	"name": "entorno_IS2",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "maven",
+	"workspaceFolder": "/usr/src/",
+	"shutdownAction": "stopCompose",
+
+	"extensions": [
+		"ckolkman.vscode-postgres"
+	]
+}

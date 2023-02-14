@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  maven:
+    build: 
+      dockerfile: Dockerfile-maven
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ./:/usr/src/
+      - vscode:/root/.vscode-server/extensions
+      - vscode_insiders:/root/.vscode-server-insiders
+  wilfly:
+    build: 
+      dockerfile: Dockerfile-wildfly
+    volumes:
+      - ./:/usr/src/
+    ports:
+        - 8080:8080
+        - 9990:9990
+        - 8009:8009
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=proyecto-backend
+
+volumes:
+  postgres_data:
+  vscode:
+  vscode_insiders:
