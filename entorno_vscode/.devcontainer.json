@@ -6,6 +6,9 @@
 	"shutdownAction": "stopCompose",
 
 	"extensions": [
-		"ckolkman.vscode-postgres"
+		"ckolkman.vscode-postgres",
+		"mhutchie.git-graph",
+		"vscjava.vscode-maven",
+		"georgewfraser.vscode-javac"
 	]
 }
