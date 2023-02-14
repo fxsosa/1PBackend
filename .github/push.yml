@@ -1,0 +1,9 @@
+name: Docker Compose Produccion
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Construccion del contenedor
+        run: docker-compose -f docker-compose.yml up -d --build
