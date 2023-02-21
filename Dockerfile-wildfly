@@ -1,3 +1,6 @@
-FROM quay.io/wildfly/wildfly:27.0.1.Final-jdk19
+FROM jboss/wildfly:18.0.0.Final
+USER root
+COPY ./configuration/ /opt/jboss/wildfly/standalone/configuration/
+RUN chmod 755 -R /opt/jboss/wildfly/standalone/configuration
 RUN /opt/jboss/wildfly/bin/add-user.sh admin admin --silent
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
