@@ -9,6 +9,12 @@ services:
       - ./:/usr/src/
       - vscode:/root/.vscode-server/extensions
       - vscode_insiders:/root/.vscode-server-insiders
+  maven-comp:
+    build: 
+      dockerfile: Dockerfile-maven-comp
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ./:/usr/src/
   wilfly:
     build: 
       dockerfile: Dockerfile-wildfly
